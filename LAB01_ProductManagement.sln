@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34607.119
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LAB01_ProductManagementAPI", "LAB01_ProductManagement\LAB01_ProductManagementAPI.csproj", "{032D5B10-892F-4E6B-AD77-3368548CD440}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusinessObject", "BusinessObject\BusinessObject.csproj", "{03315288-3014-4083-8A4E-F48E1F5D6C5A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessObject", "BusinessObject\BusinessObject.csproj", "{03315288-3014-4083-8A4E-F48E1F5D6C5A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "DataAccess\DataAccess.csproj", "{EC2713FD-0C4A-4AE3-BFA0-60F8BC074E42}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{EC2713FD-0C4A-4AE3-BFA0-60F8BC074E42}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Repositories", "Repositories\Repositories.csproj", "{33D8F712-5FCB-409B-8793-4DF72336E1CA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repositories", "Repositories\Repositories.csproj", "{33D8F712-5FCB-409B-8793-4DF72336E1CA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LAB01_ProductManagementRazorPage", "LAB01_ProductManagementRazorPage\LAB01_ProductManagementRazorPage.csproj", "{555C21C7-4A97-456F-8E78-6D602BB890CA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LAB01_ProductManagementRazorPage", "LAB01_ProductManagementRazorPage\LAB01_ProductManagementRazorPage.csproj", "{555C21C7-4A97-456F-8E78-6D602BB890CA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LAB01_ProductManagementAPI", "LAB01_ProductManagementAPI\LAB01_ProductManagementAPI.csproj", "{EDCA95FA-1566-48CC-962F-14A22E42E1A6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,10 +19,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{032D5B10-892F-4E6B-AD77-3368548CD440}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{032D5B10-892F-4E6B-AD77-3368548CD440}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{032D5B10-892F-4E6B-AD77-3368548CD440}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{032D5B10-892F-4E6B-AD77-3368548CD440}.Release|Any CPU.Build.0 = Release|Any CPU
 		{03315288-3014-4083-8A4E-F48E1F5D6C5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{03315288-3014-4083-8A4E-F48E1F5D6C5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{03315288-3014-4083-8A4E-F48E1F5D6C5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -39,6 +35,10 @@ Global
 		{555C21C7-4A97-456F-8E78-6D602BB890CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{555C21C7-4A97-456F-8E78-6D602BB890CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{555C21C7-4A97-456F-8E78-6D602BB890CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EDCA95FA-1566-48CC-962F-14A22E42E1A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDCA95FA-1566-48CC-962F-14A22E42E1A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDCA95FA-1566-48CC-962F-14A22E42E1A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDCA95FA-1566-48CC-962F-14A22E42E1A6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
