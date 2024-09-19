@@ -10,19 +10,19 @@ EXPOSE 80
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["LAB01_ProductManagement/LAB01_ProductManagementAPI.csproj", "LAB01_ProductManagement/"]
-RUN dotnet restore "./LAB01_ProductManagement/LAB01_ProductManagementAPI.csproj"
+COPY ["ProductManagementAPI/ProductManagementAPI.csproj", "ProductManagementAPI/"]
+RUN dotnet restore "./ProductManagementAPI/ProductManagementAPI.csproj"
 COPY . .
-WORKDIR "/src/TestLinuxDocker"
-RUN dotnet build "./TestLinuxDocker.csproj" -c $BUILD_CONFIGURATION -o /app/build
+WORKDIR "/src/ProductManagementAPI"
+RUN dotnet build "./ProductManagementAPI.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 # This stage is used to publish the service project to be copied to the final stage
 FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
-RUN dotnet publish "./TestLinuxDocker.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "./ProductManagementAPI.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
 
 # This stage is used in production or when running from VS in regular mode (Default when not using the Debug configuration)
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "TestLinuxDocker.dll"]
+ENTRYPOINT ["dotnet", "ProductManagementAPI.dll"]
