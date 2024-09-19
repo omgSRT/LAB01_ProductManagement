@@ -64,7 +64,7 @@ namespace LAB01_ProductManagementAPI.Controllers
                 _categoryRepository.Add(category);
                 _categoryRepository.Save();
                 
-                return Ok();
+                return Ok(category);
             }
             catch(Exception ex)
             {
@@ -73,7 +73,7 @@ namespace LAB01_ProductManagementAPI.Controllers
         }
 
         [HttpPut("update/{id}")]
-        public ActionResult UpdateProductById([FromRoute] int id, string name)
+        public ActionResult UpdateCategoryById([FromRoute] int id, string name)
         {
             try
             {
@@ -101,7 +101,7 @@ namespace LAB01_ProductManagementAPI.Controllers
                 foundCategory.CategoryName = name;
                 _categoryRepository.Update(foundCategory);
                 _categoryRepository.Save();
-                return Ok();
+                return Ok(foundCategory);
             }
             catch (Exception ex)
             {
@@ -110,7 +110,7 @@ namespace LAB01_ProductManagementAPI.Controllers
         }
 
         [HttpDelete("delete/{id}")]
-        public ActionResult DeleteProductById([FromRoute] int id)
+        public ActionResult DeleteCategoryById([FromRoute] int id)
         {
             try
             { 

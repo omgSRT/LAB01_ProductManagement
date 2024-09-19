@@ -9,9 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "DataAccess\Da
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Repositories", "Repositories\Repositories.csproj", "{33D8F712-5FCB-409B-8793-4DF72336E1CA}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LAB01_ProductManagementRazorPage", "LAB01_ProductManagementRazorPage\LAB01_ProductManagementRazorPage.csproj", "{555C21C7-4A97-456F-8E78-6D602BB890CA}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LAB01_ProductManagementAPI", "LAB01_ProductManagementAPI\LAB01_ProductManagementAPI.csproj", "{EDCA95FA-1566-48CC-962F-14A22E42E1A6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LAB01_ProductManagementAPI", "LAB01_ProductManagementAPI\LAB01_ProductManagementAPI.csproj", "{EDCA95FA-1566-48CC-962F-14A22E42E1A6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,10 +29,6 @@ Global
 		{33D8F712-5FCB-409B-8793-4DF72336E1CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{33D8F712-5FCB-409B-8793-4DF72336E1CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{33D8F712-5FCB-409B-8793-4DF72336E1CA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{555C21C7-4A97-456F-8E78-6D602BB890CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{555C21C7-4A97-456F-8E78-6D602BB890CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{555C21C7-4A97-456F-8E78-6D602BB890CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{555C21C7-4A97-456F-8E78-6D602BB890CA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{EDCA95FA-1566-48CC-962F-14A22E42E1A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{EDCA95FA-1566-48CC-962F-14A22E42E1A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EDCA95FA-1566-48CC-962F-14A22E42E1A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
