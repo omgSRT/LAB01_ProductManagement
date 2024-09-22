@@ -35,8 +35,25 @@ namespace LAB01_ProductManagementAPI.Controllers
                 return BadRequest(ex.Message);
             }
         }
+        [HttpGet("get/{id}")]
+        public ActionResult GetProduct([FromRoute] int id)
+        {
+            try
+            {
+                var product = _productRepository.GetById(id);
+                if (product == null)
+                {
+                    return NotFound("Product Not Found");
+                }
+                return Ok(product);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
         [HttpPost("create")]
-        public ActionResult CreateCategory(ProductRequest request)
+        public ActionResult CreateProduct(ProductRequest request)
         {
             try
             {
