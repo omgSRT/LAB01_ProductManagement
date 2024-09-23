@@ -23,7 +23,6 @@ namespace BusinessObject
         public int UnitsInStock { get; set; }
         [Required]
         public decimal UnitPrice { get; set; }
-        [JsonIgnore]
         public virtual Category? Category { get; set; }
     }
 }
