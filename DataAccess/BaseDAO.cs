@@ -30,7 +30,7 @@ namespace DataAccess
         {
             return _dbSet.Include(field1).Include(field2);
         }
-        public T? GetById(long id)
+        public T? GetById(int id)
         {
             return _dbSet.Find(id);
         }

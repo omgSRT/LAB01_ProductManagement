@@ -25,7 +25,7 @@ namespace LAB01_ProductManagementAPI.Controllers
         public ActionResult GetAllProducts() {
             try
             {
-                var list = _productRepository.GetAll().AsQueryable();
+                var list = _productRepository.GetAllWithInclude("Category").AsQueryable();
                 if (!list.Any()) {
                     return NotFound("No Data");
                 }
@@ -74,17 +74,14 @@ namespace LAB01_ProductManagementAPI.Controllers
                 {
                     return BadRequest("Name Existed");
                 }
-                var nextId = _productRepository.GetAll().Any()
-                            ? _productRepository.GetAll().Max(cate => cate.CategoryId) + 1
-                            : 1;
 
                 Product newProduct = new Product
                 {
-                    ProductId = nextId,
                     ProductName = request.ProductName,
                     UnitPrice = request.UnitPrice,
                     UnitsInStock = request.UnitsInStock,
                     CategoryId = request.CategoryId,
+                    Category = category
                 };
                 _productRepository.Add(newProduct);
                 _productRepository.Save();
@@ -112,6 +109,11 @@ namespace LAB01_ProductManagementAPI.Controllers
                 {
                     return BadRequest("Product Not Found");
                 }
+                Category category = _categoryRepository.GetById(request.CategoryId)!;
+                if (category == null)
+                {
+                    return BadRequest("Category Not Exist");
+                }
 
                 if (!foundProduct.ProductName!.Equals(request.ProductName, StringComparison.OrdinalIgnoreCase))
                 {
@@ -127,6 +129,7 @@ namespace LAB01_ProductManagementAPI.Controllers
                 foundProduct.CategoryId = request.CategoryId;
                 foundProduct.UnitPrice = request.UnitPrice;
                 foundProduct.UnitsInStock = request.UnitsInStock;
+                foundProduct.Category = category;
                 _productRepository.Update(foundProduct);
                 _productRepository.Save();
 
@@ -143,14 +146,14 @@ namespace LAB01_ProductManagementAPI.Controllers
         {
             try
             {
-                var foundProduct = _categoryRepository.GetById(id);
+                var foundProduct = _productRepository.GetById(id);
                 if (foundProduct == null)
                 {
                     return BadRequest("Product Not Found");
                 }
 
-                _categoryRepository.Delete(foundProduct);
-                _categoryRepository.Save();
+                _productRepository.Delete(foundProduct);
+                _productRepository.Save();
                 return Ok(foundProduct);
             }
             catch (Exception ex)

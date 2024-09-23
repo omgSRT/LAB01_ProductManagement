@@ -41,7 +41,7 @@ namespace LAB01_ProductManagementAPI.Controllers
         {
             try
             {
-                if(name != null)
+                if(name == null)
                 {
                     return BadRequest("Name cannot be null");
                 }
@@ -58,7 +58,6 @@ namespace LAB01_ProductManagementAPI.Controllers
                             : 1;
                 Category category = new Category
                 {
-                    CategoryId = nextId,
                     CategoryName = name
                 };
                 _categoryRepository.Add(category);
@@ -77,7 +76,7 @@ namespace LAB01_ProductManagementAPI.Controllers
         {
             try
             {
-                if (name != null)
+                if (name == null)
                 {
                     return BadRequest("Name cannot be null");
                 }

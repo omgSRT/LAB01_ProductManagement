@@ -13,7 +13,7 @@ namespace Repositories.Interface
         IEnumerable<Category> GetAll();
         IEnumerable<Category> GetAllWithInclude(string field);
         IEnumerable<Category> GetAllWith2Include(string field1, string field2);
-        Category? GetById(long id);
+        Category? GetById(int id);
         void Add(Category category);
         void Update(Category category);
         void Delete(Category category);

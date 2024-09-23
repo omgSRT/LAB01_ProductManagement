@@ -20,7 +20,7 @@ namespace Repositories.Implement
         public IEnumerable<Category> GetAllWith2Include(string field1, string field2) => CategoryDAO.Instance.GetAllWith2Include(field1, field2);
 
         public IEnumerable<Category> GetAllWithInclude(string field) => CategoryDAO.Instance.GetAllWithInclude(field);
-        public Category? GetById(long id) => CategoryDAO.Instance.GetById(id);
+        public Category? GetById(int id) => CategoryDAO.Instance.GetById(id);
 
         public void Save() => CategoryDAO.Instance.Save();
 
