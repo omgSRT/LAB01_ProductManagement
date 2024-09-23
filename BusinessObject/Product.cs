@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace BusinessObject
@@ -22,6 +23,7 @@ namespace BusinessObject
         public int UnitsInStock { get; set; }
         [Required]
         public decimal UnitPrice { get; set; }
+        [JsonIgnore]
         public virtual Category? Category { get; set; }
     }
 }

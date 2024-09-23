@@ -2,6 +2,7 @@
 using LAB01_ProductManagementAPI.DTO;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.OData.Query;
+using Microsoft.EntityFrameworkCore;
 using Repositories.Implement;
 using Repositories.Interface;
 using System.Xml.Linq;
@@ -65,7 +66,7 @@ namespace LAB01_ProductManagementAPI.Controllers
                 Category category = _categoryRepository.GetById(request.CategoryId)!;
                 if (category == null)
                 {
-                    return BadRequest("Category Not Exist");
+                    return NotFound("Category Not Exist");
                 }
 
                 var existProduct = _productRepository.GetAll().
@@ -80,13 +81,17 @@ namespace LAB01_ProductManagementAPI.Controllers
                     ProductName = request.ProductName,
                     UnitPrice = request.UnitPrice,
                     UnitsInStock = request.UnitsInStock,
-                    CategoryId = request.CategoryId,
-                    Category = category
+                    CategoryId = request.CategoryId
                 };
                 _productRepository.Add(newProduct);
                 _productRepository.Save();
 
                 return Ok(newProduct);
+            }
+            catch (DbUpdateException ex)
+            {
+                var innerException = ex.InnerException?.Message ?? ex.Message;
+                return BadRequest($"Database update failed: {innerException}");
             }
             catch (Exception ex)
             {
