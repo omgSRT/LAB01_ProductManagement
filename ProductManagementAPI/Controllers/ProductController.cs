@@ -22,11 +22,11 @@ namespace LAB01_ProductManagementAPI.Controllers
         }
 
         [EnableQuery(PageSize = 10)]
-        [HttpGet("getall")]
-        public ActionResult GetAllProducts() {
+        [HttpGet("get")]
+        public ActionResult GetAllProducts(int? pageIndex = 1, int? pageSize = 10) {
             try
             {
-                var list = _productRepository.GetAllWithInclude("Category").AsQueryable();
+                var list = _productRepository.GetAllWithInclude(pageIndex, pageSize, "Category").AsQueryable();
                 if (!list.Any()) {
                     return NotFound("No Data");
                 }

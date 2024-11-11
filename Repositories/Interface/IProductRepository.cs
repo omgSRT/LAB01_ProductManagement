@@ -11,6 +11,7 @@ namespace Repositories.Interface
     {
         IEnumerable<Product> GetAll();
         IEnumerable<Product> GetAllWithInclude(string field);
+        IEnumerable<Product> GetAllWithInclude(int? pageIndex, int? pageSize, string include);
         IEnumerable<Product> GetAllWith2Include(string field1, string field2);
         Product? GetById(int id);
         void Add(Product product);

@@ -11,6 +11,7 @@ namespace Repositories.Interface
     public interface ICategoryRepository
     {
         IEnumerable<Category> GetAll();
+        IEnumerable<Category> GetAll(int? pageIndex, int? pageSize);
         IEnumerable<Category> GetAllWithInclude(string field);
         IEnumerable<Category> GetAllWith2Include(string field1, string field2);
         Category? GetById(int id);

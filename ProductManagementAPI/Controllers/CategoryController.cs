@@ -17,13 +17,12 @@ namespace LAB01_ProductManagementAPI.Controllers
             _categoryRepository = categoryRepository;
         }
 
-        [EnableQuery(PageSize = 10)]
-        [HttpGet("getall")]
-        public ActionResult GetAllCategories()
+        [HttpGet("get")]
+        public ActionResult GetAllCategories(int? pageIndex = 1, int? pageSize = 10)
         {
             try
             {
-                var list = _categoryRepository.GetAll().AsQueryable();
+                var list = _categoryRepository.GetAll(pageIndex, pageSize).AsQueryable();
                 if(!list.Any())
                 {
                     return NotFound("No Data");

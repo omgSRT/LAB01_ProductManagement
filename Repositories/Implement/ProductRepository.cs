@@ -21,6 +21,25 @@ namespace Repositories.Implement
 
         public IEnumerable<Product> GetAllWithInclude(string field) => ProductDAO.Instance.GetAllWithInclude(field);
 
+        public IEnumerable<Product> GetAllWithInclude(int? pageIndex, int? pageSize, string include)
+        {
+            if (pageIndex == null || (pageIndex != null && pageIndex < 1))
+            {
+                pageIndex = 1;
+            }
+            if (pageIndex == null || (pageIndex != null && pageIndex < 1))
+            {
+                pageIndex = 1;
+            }
+
+            var skip = (pageIndex - 1) * pageSize;
+
+            return ProductDAO.Instance.GetAllWithInclude(include)
+                .Skip((int)skip!)
+                .Take((int)pageSize!)
+                .ToList();
+        }
+
         public Product? GetById(int id) => ProductDAO.Instance.GetById(id);
 
         public void Save() => ProductDAO.Instance.Save();
